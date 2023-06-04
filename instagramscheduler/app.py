@@ -6,6 +6,7 @@ from werkzeug.utils import secure_filename
 import os
 
 app = Flask(__name__)
+
 app.secret_key = '123fdf3rf42f2f13f1f2f2f2'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database_insta.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -213,4 +214,4 @@ def delete_post(post_id):
 if __name__ == '__main__':
     app.app_context().push()
     db.create_all()
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=5000)
